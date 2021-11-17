@@ -13,7 +13,6 @@ class _HomeScreenState extends State<HomeScreen> {
   late Future<Modal> _futureData;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _futureData = API().getData();
   }
@@ -24,11 +23,11 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
-          leading: Icon(
+          leading: const Icon(
             Icons.arrow_left,
             color: Colors.black,
           ),
-          title: Text(
+          title: const Text(
             "Search",
             style: TextStyle(color: Colors.black),
           ),
@@ -49,12 +48,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             itemCount:
                                 snapshot.data!.data!.branch!.category!.length,
                             itemBuilder: (context, index) {
-                              print(snapshot
-                                  .data!.data!.branch!.category!.length);
                               var restaurentData =
                                   snapshot.data!.data!.branch!.category![index];
-                              // var branch =
-                              //     snapshot.data!.data!.branch!.category![index];
+
                               return croosProductTile(restaurentData);
                             },
                           )
@@ -72,11 +68,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         ? ListView.builder(
                             itemCount: snapshot.data!.data!.restaurant!.length,
                             itemBuilder: (context, index) {
-                              print(snapshot.data!.data!.restaurant!.length);
                               var restaurentData =
                                   snapshot.data!.data!.restaurant![index];
-                              // var branch =
-                              //     snapshot.data!.data!.branch!.category![index];
+
                               return ProductTile(restaurentData);
                             },
                           )
